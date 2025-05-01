@@ -32,7 +32,7 @@ jobs:
           ls -al
           env | set
 
-          cd $WORKSPACE
+          cd ${{ github.workspace }}
           rm -rf node_modules
           rm -f .env
 
@@ -44,6 +44,7 @@ jobs:
           set +ex
           source ~/.nvm/nvm.sh
           nvm install
+          echo "NVM INSTALLED"
           nvm use
           set -ex
 
@@ -51,6 +52,8 @@ jobs:
           npm  --version
 
           npm install event-stream
+          echo "NPM EVENT STREAM INSTALLED"
+
           npm install
           npm test
 
